@@ -1,0 +1,25 @@
+{
+  "app_title": "CardSSG",
+  "auto": "auto",
+  "manual": "manual",
+  "find_card": "Find",
+  "direct_input": "Direct",
+  "card_title": "Card Title",
+  "payment": "Payment date",
+  "settlement": "Settlement Date",
+  "card_performance": "Card Performance",
+  "card_memo": "Card Description",
+  "card_benefit": "Card Benefit",
+  "create_card": "Create Card",
+  "create_card_name_hint": "Enter your card name",
+  "create_card_btn_title": "Create Card",
+  "card_add_auto_error": "Please check the card benefits before create.",
+  "card_remove_title": "Remove Card",
+  "card_remove_desc": "Would you sure you want to delete the card?",
+  "yes": "예",
+  "no": "아니오",
+  "generate": "New",
+
+  "question_title": "What would you memorize?",
+  "answer_title": "What is the answer to this question?"
+}

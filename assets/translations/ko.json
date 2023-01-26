@@ -1,0 +1,25 @@
+{
+  "app_title": "카드쓱",
+  "auto": "자동",
+  "manual": "수동",
+  "find_card": "카드검색",
+  "direct_input": "직접입력",
+  "card_title": "카드 이름",
+  "settlement": "정산일",
+  "payment": "결제일",
+  "card_performance": "실적 금액",
+  "card_memo": "메모",
+  "card_benefit": "카드 혜택",
+  "create_card": "카드 생성",
+  "create_card_name_hint": "카드 이름을 적으세요",
+  "create_card_btn_title": "카드 생성",
+  "card_add_auto_error": "카드 혜택을 확인 후 생성해 주세요.",
+  "card_remove_title": "카드삭제",
+  "card_remove_desc": "해당 카드를 삭제하시겠습니까?",
+  "yes": "예",
+  "no": "아니오",
+  "generate": "생성",
+
+  "question_title": "무엇을 외울까요?",
+  "answer_title": "이 질문의 정답은?"
+}
