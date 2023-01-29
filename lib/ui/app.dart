@@ -43,7 +43,7 @@ class Tome extends StatelessWidget {
           return MediaQuery(data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0), child: child ?? const Text(''));
         }),
         routes: {
-          Routes.urlHome: (_) => const Intro(),
+          Routes.urlHome: (_) => Intro(),
         },
       ),
     );

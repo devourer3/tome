@@ -19,7 +19,12 @@
   "yes": "예",
   "no": "아니오",
   "generate": "생성",
+  "next": "다음",
+  "prev": "이전",
+  "save": "저장",
 
-  "question_title": "무엇을 외울까요?",
-  "answer_title": "이 질문의 정답은?"
+  "question_title": "무엇을 외워 볼까요?",
+  "question_hint": "질문을 적어 주세요!",
+  "answer_title": "이 질문의 정답은?",
+  "answer_hint": "답을 적어 주세요!"
 }

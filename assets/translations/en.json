@@ -16,10 +16,15 @@
   "card_add_auto_error": "Please check the card benefits before create.",
   "card_remove_title": "Remove Card",
   "card_remove_desc": "Would you sure you want to delete the card?",
-  "yes": "예",
-  "no": "아니오",
+  "yes": "Yes",
+  "no": "No",
   "generate": "New",
+  "next": "Next",
+  "prev": "Back",
+  "save": "Save",
 
   "question_title": "What would you memorize?",
-  "answer_title": "What is the answer to this question?"
+  "question_hint": "Write down the question!",
+  "answer_title": "What is the answer to this question?",
+  "answer_hint": "Write down the answer!"
 }

@@ -38,13 +38,13 @@ class UiUtil {
 
   static void showToast({
     required BuildContext buildContext,
-    required String langKey,
+    required String message,
     ColorName backgroundColor = ColorName.background,
     ColorName textColor = ColorName.textStrong,
     ToastGravity toastGravity = ToastGravity.BOTTOM,
   }) {
     Fluttertoast.showToast(
-        msg: tr(langKey),
+        msg: message,
         fontSize: 10,
         backgroundColor: ThemeColor(context: buildContext, name: backgroundColor),
         textColor: ThemeColor(context: buildContext, name: textColor),
