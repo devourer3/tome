@@ -15,7 +15,9 @@ import 'package:tome/ui/utils/theme_util.dart';
 
 class Intro extends StatefulWidget {
   Intro({super.key});
+
   final FocusNode focus = FocusNode();
+
   @override
   State<StatefulWidget> createState() => _IntroState();
 }
@@ -38,56 +40,70 @@ class _IntroState extends State<Intro> {
       state.log();
       return Scaffold(
           body: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text(tr('question_title')),
-          const Space(height: 16),
-          CustomTextField(
-            inputType: TextInputType.text,
-            inputAction: TextInputAction.next,
-            hint: tr('question_hint'),
-            maxLines: 1,
-            fontSize: 32,
-            onTextChange: (text) => {
-              setState(() {question = text;})
-            },
-            onEditingComplete: (text) => {
-              widget.focus.requestFocus()
-            },
-          ),
-          if (question.isNotEmpty || answer.isNotEmpty) ...[
-            const Space(height: 24),
-            Text(tr('answer_title')),
-            const Space(height: 16),
-            CustomTextField(
-              inputType: TextInputType.text,
-              inputAction: TextInputAction.next,
-              focusNode: widget.focus,
-              hint: tr('answer_hint'),
-              maxLines: 1,
-              fontSize: 32,
-              onTextChange: (text) => {
-                setState(() {answer = text;})
-              },
-              onEditingComplete: (text) => {
-
-              },
-            ),
-            const Space(height: 24),
-          ],
-          if (question.isNotEmpty && answer.isNotEmpty) ...[
-            Container(
-                alignment: Alignment.center,
-                child: ElevatedButtonView(
+              margin: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Text(tr('question_title')),
+                const Space(height: 16),
+                CustomTextField(
+                  inputType: TextInputType.text,
+                  inputAction: TextInputAction.next,
+                  hint: tr('question_hint'),
+                  maxLines: 1,
+                  fontSize: 32,
+                  onTextChange: (text) =>
+                  {
+                    setState(() {
+                      question = text;
+                    })
+                  },
+                  onEditingComplete: (text) => {widget.focus.requestFocus()},
+                ),
+                AnimatedOpacity(
+                  opacity: question.isNotEmpty || answer.isNotEmpty ? 1.0 : 0.0,
+                  duration: const Duration(milliseconds: 500),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: (question.isNotEmpty || answer.isNotEmpty)
+                        ? [
+                      const Space(height: 24),
+                      Text(tr('answer_title')),
+                      const Space(height: 16),
+                      CustomTextField(
+                        inputType: TextInputType.text,
+                        inputAction: TextInputAction.next,
+                        focusNode: widget.focus,
+                        hint: tr('answer_hint'),
+                        maxLines: 1,
+                        fontSize: 32,
+                        onTextChange: (text) =>
+                        {
+                          setState(() {
+                            answer = text;
+                          })
+                        },
+                        onEditingComplete: (text) => {},
+                      ),
+                      const Space(height: 24),
+                    ]
+                        : [],
+                  ),
+                ),
+                AnimatedOpacity(
+                  opacity: question.isNotEmpty && answer.isNotEmpty ? 1.0 : 0.0,
+                  duration: const Duration(milliseconds: 500),
+                  child: question.isNotEmpty && answer.isNotEmpty ? ElevatedButtonView(
                     btnTitle: tr('save'),
                     height: 50,
                     btnStyle: ButtonStyle(backgroundColor: MaterialStatePropertyAll(ThemeColor(context: context, name: ColorName.active))),
-                    onPressed: () => {
+                    onPressed: () =>
+                    {
                       context.read<MemoryBloc>().add(MemoryAdded(MemoryItemModel.init(pMemoryQuestion: question, pMemoryAnswer: answer))),
-                    })),
-          ]
-        ]),
-      ));
+                    },
+                  ) : const SizedBox(),
+                ),
+              ],
+              ))
+      );
     });
   }
 }

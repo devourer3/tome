@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1097210093155:android:88890a47f5a819635ee256",
+        "mobilesdk_app_id": "1:1097210093155:android:787f0e8942476f225ee256",
         "android_client_info": {
-          "package_name": "com.example.tome"
+          "package_name": "com.beomkey.tome"
         }
       },
       "oauth_client": [
@@ -29,6 +29,13 @@
             {
               "client_id": "1097210093155-5jfq3i6hp4l10efscipfoo9ghvul9qdj.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "1097210093155-i4ouqlsrat9tbbd5o85rg73u79d1kg4t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.beomkey.tome"
+              }
             }
           ]
         }

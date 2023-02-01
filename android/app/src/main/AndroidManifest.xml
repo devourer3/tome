@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.tome">
+    package="com.beomkey.tome">
    <application
         android:label="tome"
         android:name="${applicationName}"

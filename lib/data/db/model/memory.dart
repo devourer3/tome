@@ -14,8 +14,8 @@ const memoryUTimeColumn = 'uTime';
 class MemoryItemModel extends BaseModel {
   String question = '';
   String answer = '';
-  int correctCnt = 0;
-  int wrongCnt = 0;
+  int correctCount = 0;
+  int wrongCount = 0;
   Uint8List? questionImage = Uint8List.fromList([]);
   Uint8List? answerImage = Uint8List.fromList([]);
 
@@ -27,6 +27,8 @@ class MemoryItemModel extends BaseModel {
   }) : super.init() {
     question = pMemoryQuestion;
     answer = pMemoryAnswer;
+    correctCount = 0;
+    wrongCount = 0;
     questionImage = pMemoryQuestionImage ?? Uint8List.fromList([]);
     answerImage = pMemoryAnswerImage ?? Uint8List.fromList([]);
   }
@@ -39,8 +41,8 @@ class MemoryItemModel extends BaseModel {
 
     itemMap[memoryQuestionColumn] = question;
     itemMap[memoryAnswerColumn] = answer;
-    itemMap[memoryCorrectCountColumn] = memoryCorrectCountColumn;
-    itemMap[memoryWrongCountColumn] = memoryWrongCountColumn;
+    itemMap[memoryCorrectCountColumn] = correctCount;
+    itemMap[memoryWrongCountColumn] = wrongCount;
     return itemMap;
   }
 
@@ -52,8 +54,8 @@ class MemoryItemModel extends BaseModel {
         ) {
     question = map[memoryQuestionColumn] as String;
     answer = map[memoryAnswerColumn] as String;
-    correctCnt = map[memoryCorrectCountColumn] as int;
-    wrongCnt = map[memoryWrongCountColumn] as int;
+    correctCount = map[memoryCorrectCountColumn] as int;
+    wrongCount = map[memoryWrongCountColumn] as int;
     questionImage = map[memoryQuestionColumn] as Uint8List;
     answerImage = map[memoryAnswerColumn] as Uint8List;
   }
