@@ -1,11 +1,8 @@
-import 'dart:math';
-
 import 'package:bloc/bloc.dart';
 import 'package:tome/data/db/model/memory.dart';
 import 'package:tome/domain/local/memory_repository.dart';
 import 'package:tome/ui/Intro/bloc/intro_memo_state.dart';
 import 'package:tome/ui/constants/bloc_status.dart';
-import 'package:tome/ui/utils/base_util.dart';
 
 import 'intro_memo_event.dart';
 
@@ -41,7 +38,6 @@ class MemoryBloc extends Bloc<MemoryEvent, MemoryState> {
       ) async {
     emit(state.setState(pStatus: BlocStatus.loading));
     try {
-      event.log();
       await _memoryRepository.insertMemory(event.memoryItemModel);
       final List<MemoryItemModel> memoryList = await _memoryRepository.getAllMemory();
       emit(state.setState(pStatus: BlocStatus.success, pMemoryList: memoryList));

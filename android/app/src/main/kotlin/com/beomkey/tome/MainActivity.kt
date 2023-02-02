@@ -1,4 +1,4 @@
-package com.gbeom.tome
+package com.beomkey.tome
 
 import io.flutter.embedding.android.FlutterActivity
 

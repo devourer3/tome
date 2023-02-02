@@ -6,8 +6,8 @@ const memoryQuestionColumn = 'question';
 const memoryAnswerColumn = 'answer';
 const memoryCorrectCountColumn = 'correctCount';
 const memoryWrongCountColumn = 'wrongCount';
-const memoryQuestionImage = 'questionImage';
-const memoryAnswerImage = 'answerImage';
+const memoryQuestionImageColumn = 'questionImage';
+const memoryAnswerImageColumn = 'answerImage';
 const memoryCTimeColumn = 'cTime';
 const memoryUTimeColumn = 'uTime';
 
@@ -56,7 +56,7 @@ class MemoryItemModel extends BaseModel {
     answer = map[memoryAnswerColumn] as String;
     correctCount = map[memoryCorrectCountColumn] as int;
     wrongCount = map[memoryWrongCountColumn] as int;
-    questionImage = map[memoryQuestionColumn] as Uint8List;
-    answerImage = map[memoryAnswerColumn] as Uint8List;
+    questionImage = map[memoryQuestionImageColumn] as Uint8List?;
+    answerImage = map[memoryAnswerImageColumn] as Uint8List?;
   }
 }

@@ -1,5 +1,5 @@
 class Routes {
-  static const urlHome = '/';
-  static const urlCardAdd = '/home';
-  static const urlCardDetail = '/detail';
+  static const urlIntro = '/';
+  static const urlHome = '/home';
+  static const urlMemoryDetail = '/detail';
 }

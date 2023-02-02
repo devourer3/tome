@@ -7,6 +7,7 @@ import 'package:tome/domain/local/memory_repository.dart';
 import 'package:tome/ui/Intro/bloc/intro_memo_bloc.dart';
 import 'package:tome/ui/Intro/bloc/intro_memo_event.dart';
 import 'package:tome/ui/Intro/view/intro.dart';
+import 'package:tome/ui/home/view/home.dart';
 import 'package:tome/ui/theme/theme.dart';
 
 import 'constants/routes.dart';
@@ -17,10 +18,11 @@ class Tome extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final memoryRepository = MemoryRepository();
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (_) => MemoryBloc(memoryRepository: MemoryRepository())..add(MemoryInit()),
+          create: (_) => MemoryBloc(memoryRepository: memoryRepository)..add(MemoryInit()),
         ),
         // BlocProvider(
         //   create: (_) => CreditCardAddBloc(
@@ -38,12 +40,13 @@ class Tome extends StatelessWidget {
         locale: context.locale,
         supportedLocales: context.supportedLocales,
         localizationsDelegates: context.localizationDelegates,
-        initialRoute: Routes.urlHome,
+        initialRoute: Routes.urlIntro,
         builder: EasyLoading.init(builder: (context, child) {
           return MediaQuery(data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0), child: child ?? const Text(''));
         }),
         routes: {
-          Routes.urlHome: (_) => Intro(),
+          Routes.urlIntro: (_) => Intro(memoryRepository: memoryRepository),
+          Routes.urlHome: (_) => Home(),
         },
       ),
     );

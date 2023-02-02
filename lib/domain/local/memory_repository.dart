@@ -1,9 +1,7 @@
-import 'package:logger/logger.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:tome/data/db/db_helper.dart';
 import 'package:tome/data/db/model/memory.dart';
 import 'package:tome/data/db/scheme/table_name.dart';
-import 'package:tome/ui/utils/base_util.dart';
 
 class MemoryRepository {
   final db = DBHelper().database;
