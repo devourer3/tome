@@ -14,6 +14,13 @@ class MemoryRepository {
     return items;
   }
 
+  Future<int> getMemoryCount() async {
+    Database db = await this.db;
+    dynamic ret = await db.rawQuery('SELECT COUNT(*) FROM MEMORY');
+    int count = Sqflite.firstIntValue(ret) ?? 0;
+    return count;
+  }
+
   Future<int> insertMemory(MemoryItemModel item) async {
     Database db = await this.db;
     Map<String, dynamic> memoryItem = item.toMap();

@@ -10,8 +10,12 @@ import 'package:tome/ui/utils/theme_util.dart';
 import '../constants/colors.dart';
 
 class UiUtil {
-  static void showLoading() {
-    EasyLoading.show(status: 'Loading...');
+  static void showLoading(bool isShow) {
+    if (isShow) {
+      EasyLoading.show(status: 'Loading...');
+      return;
+    }
+    EasyLoading.dismiss(animation: false);
   }
 
   static SvgPicture getSvgFromPath({required String path, required double width, required double height, required Color color, required Alignment alignment}) {
