@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tome/data/db/model/memory.dart';
 import 'package:tome/ui/Intro/bloc/intro_memo_bloc.dart';
 import 'package:tome/ui/Intro/bloc/intro_memo_state.dart';
+import 'package:tome/ui/memory_list/view/memory_list_item.dart';
 
 class MemoryList extends StatefulWidget {
   @override
@@ -17,7 +18,7 @@ class _MemoryListState extends State<MemoryList> {
   Widget build(BuildContext context) {
     return BlocConsumer<MemoryBloc, MemoryState>(
         builder: (context, state) {
-          List<MemoryItemModel>? list = state.memoryList;
+          List<MemoryItemModel> list = state.memoryList;
           return CustomScrollView(slivers: [
             // const SliverAppBar(
             // Whether the app bar should remain visible at the start of the scroll view
@@ -31,8 +32,9 @@ class _MemoryListState extends State<MemoryList> {
             // ),
             // ),
             SliverList(
-                delegate: SliverChildBuilderDelegate(childCount: 10, (context, index) {
-              return Text(list[index].question);
+                delegate: SliverChildBuilderDelegate(childCount: list.length, (context, index) {
+                  MemoryItemModel listItem = list[index];
+              return MemoryListItem(question: listItem.question, answer: listItem.answer);
             }))
           ]);
         },
