@@ -8,6 +8,7 @@ import 'package:tome/ui/Intro/bloc/intro_memo_bloc.dart';
 import 'package:tome/ui/Intro/bloc/intro_memo_event.dart';
 import 'package:tome/ui/Intro/view/intro.dart';
 import 'package:tome/ui/home/view/home.dart';
+import 'package:tome/ui/input/view/insert.dart';
 import 'package:tome/ui/theme/theme.dart';
 
 import 'constants/routes.dart';
@@ -47,6 +48,7 @@ class Tome extends StatelessWidget {
         routes: {
           Routes.urlIntro: (_) => Intro(memoryRepository: memoryRepository),
           Routes.urlHome: (_) => Home(),
+          Routes.urlMemoryInput: (_) => Input(),
         },
       ),
     );

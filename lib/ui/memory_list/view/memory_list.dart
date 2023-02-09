@@ -24,12 +24,6 @@ class _MemoryListState extends State<MemoryList> {
         builder: (context, state) {
           List<MemoryItemModel> list = state.memoryList;
           return Scaffold(
-            floatingActionButton: FloatingActionButton(
-              autofocus: true,
-              shape: StadiumBorder(side: BorderSide(color: ThemeColor(context: context, name: ColorName.white), width: 1)),
-              child: Text(tr('generate')),
-              onPressed: () => Navigator.restorablePushNamed(context, Routes.urlIntro),
-            ),
             body: CustomScrollView(slivers: [
               // const SliverAppBar(
               // Whether the app bar should remain visible at the start of the scroll view
