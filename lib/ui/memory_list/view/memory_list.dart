@@ -5,10 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tome/data/db/model/memory.dart';
 import 'package:tome/ui/Intro/bloc/intro_memo_bloc.dart';
 import 'package:tome/ui/Intro/bloc/intro_memo_state.dart';
-import 'package:tome/ui/constants/colors.dart';
-import 'package:tome/ui/constants/routes.dart';
 import 'package:tome/ui/memory_list/view/memory_list_item.dart';
-import 'package:tome/ui/utils/theme_util.dart';
 
 class MemoryList extends StatefulWidget {
   @override

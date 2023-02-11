@@ -23,12 +23,6 @@ class _HomeState extends State<Home> {
     //모바일 상단 상태 바 높이 값
     final double statusBarHeight = MediaQuery.of(context).padding.top;
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        autofocus: true,
-        shape: StadiumBorder(side: BorderSide(color: ThemeColor(context: context, name: ColorName.white), width: 1)),
-        child: Text(tr('generate')),
-        onPressed: () => Navigator.restorablePopAndPushNamed(context, Routes.urlMemoryInput),
-      ),
       body: Container(
         padding: EdgeInsets.only(top: statusBarHeight),
         child: WillPopScope(
@@ -62,16 +56,13 @@ class _HomeState extends State<Home> {
           ),
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        autofocus: true,
+        shape: StadiumBorder(side: BorderSide(color: ThemeColor(context: context, name: ColorName.white), width: 1)),
+        child: Text(tr('generate')),
+        onPressed: () => Navigator.restorablePopAndPushNamed(context, Routes.urlMemoryInput),
+      ),
     );
-  }
-
-  @override
-  void initState() {
-    print('home_initState');
-  }
-
-  @override
-  void didUpdateWidget(Widget oldWidget) {
-    print('didUpdateWidget');
   }
 }
