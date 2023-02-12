@@ -30,6 +30,7 @@ class _HomeState extends State<Home> {
             return !(await _navigatorKeyList[_currentIndex].currentState!.maybePop());
           },
           child: DefaultTabController(
+            initialIndex: 0,
             length: _pages.length, // 탭 개수
             child: Scaffold(
               body: TabBarView(
@@ -40,28 +41,57 @@ class _HomeState extends State<Home> {
                   },
                 ).toList(),
               ),
-              bottomNavigationBar: TabBar(
-                isScrollable: false,
-                indicatorPadding: const EdgeInsets.only(bottom: 74),
-                automaticIndicatorColorAdjustment: true,
-                onTap: (index) => setState(() {
-                  _currentIndex = index;
-                }),
-                tabs: const [
-                  Tab(icon: Icon(Icons.list_alt_sharp), text: '메모리'),
-                  Tab(icon: Icon(Icons.settings), text: '세팅'),
-                ],
-              ),
+              // bottomNavigationBar: BottomNavigationBar(
+              //   onTap: (index) => setState(() {
+              //     _currentIndex = index;
+              //   }),
+              //   selectedItemColor: ThemeColor(context: context, name: ColorName.active),
+              //   items: const [
+              //     BottomNavigationBarItem(icon: Icon(Icons.list_alt_sharp), label: '메모리'),
+              //     BottomNavigationBarItem(icon: Icon(Icons.settings), label: '세팅'),
+              //   ],
+              // ),
+              bottomNavigationBar: BottomAppBar(
+                notchMargin: 10,
+                color: ThemeColor(context: context, name: ColorName.dark),
+                shape: const AutomaticNotchedShape(
+                  RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(15))),
+                  RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10))),
+                ),
+                child: TabBar(
+                  isScrollable: false,
+                  // indicatorColor: Colors.transparent,
+                  indicator: UnderlineTabIndicator(insets: const EdgeInsets.symmetric(horizontal: 50), borderSide: BorderSide(color: ThemeColor(context: context, name: ColorName.active))),
+                  indicatorWeight: 1,
+                  automaticIndicatorColorAdjustment: true,
+                  indicatorPadding: const EdgeInsets.only(bottom: 50),
+                  indicatorColor: ThemeColor(context: context, name: ColorName.active),
+                  labelColor: ThemeColor(context: context, name: ColorName.active),
+                  unselectedLabelColor: ThemeColor(context: context, name: ColorName.icon),
+                  labelStyle: const TextStyle(fontSize: 12),
+                  onTap: (index) => setState(() {
+                    _currentIndex = index;
+                  }),
+                  tabs: const [
+                    Tab(icon: Icon(Icons.list_alt_sharp, size: 20), text: '메모리', height: 50, iconMargin: EdgeInsets.symmetric(vertical: 4)),
+                    Tab(icon: Icon(Icons.settings, size: 20), text: '세팅', height: 50, iconMargin: EdgeInsets.symmetric(vertical: 4)),
+                  ],
+                ),
+              )
             ),
           ),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        autofocus: true,
-        shape: StadiumBorder(side: BorderSide(color: ThemeColor(context: context, name: ColorName.white), width: 1)),
-        child: Text(tr('generate')),
-        onPressed: () => Navigator.restorablePopAndPushNamed(context, Routes.urlMemoryInput),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(bottom: 10),
+       child: FloatingActionButton(
+         autofocus: true,
+         elevation: 10,
+         shape: StadiumBorder(side: BorderSide(color: ThemeColor(context: context, name: ColorName.white), width: 2)),
+         child: Text(tr('generate')),
+         onPressed: () => Navigator.pushNamed(context, Routes.urlMemoryInput),
+       ),
       ),
     );
   }

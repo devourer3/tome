@@ -41,11 +41,17 @@ Color ThemeColor({required BuildContext context, required ColorName name, int? a
     case ColorName.white:
       color = dark ? DarkThemeColor.white : LightThemeColor.white;
       break;
+    case ColorName.black:
+      color = dark ? DarkThemeColor.black : LightThemeColor.black;
+      break;
     case ColorName.icon:
       color = dark ? DarkThemeColor.icon : LightThemeColor.icon;
       break;
     case ColorName.background:
       color = dark ? DarkThemeColor.background : LightThemeColor.background;
+      break;
+    case ColorName.dark:
+      color = dark ? DarkThemeColor.dark : LightThemeColor.dark;
       break;
   }
   return color.withAlpha(alpha ?? 255);

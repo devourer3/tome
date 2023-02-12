@@ -25,6 +25,8 @@ enum ColorName {
   textStrong,
   active,
   white,
+  black,
+  dark,
   borderMain,
   borderSub,
   icon,
@@ -40,10 +42,12 @@ class LightThemeColor {
   static const textStrong = Color(0xFF4B4B4B);
   static const active = Color(0xFFFF6255);
   static const white = Color(0xFFFFFFFF);
+  static const black = Color(0xFF000000);
   static const borderMain = Color(0xFF42434B);
   static const borderSub = Color(0xFF42434B);
   static const icon = Color(0xFF9C9C9C);
   static const background = Color(0xFFF4F4F7);
+  static const dark = Color(0xFF1C1F26);
 }
 
 class DarkThemeColor {
@@ -55,8 +59,10 @@ class DarkThemeColor {
   static const textStrong = Color(0xFFFAFAFA);
   static const active = Color(0xFFFF6255);
   static const white = Color(0xFFFFFFFF);
+  static const black = Color(0xFF000000);
   static const borderMain = Color(0xFFD5D5D5);
   static const borderSub = Color(0xFFE6E6E6);
   static const icon = Color(0xFF8C9095);
   static const background = Color(0xFF272A30);
+  static const dark = Color(0xFF1C1F26);
 }
