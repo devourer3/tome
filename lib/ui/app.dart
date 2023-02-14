@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,6 +21,11 @@ class Tome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final memoryRepository = MemoryRepository();
+    final dynamic routes = {
+      Routes.urlIntro: (context) => Intro(memoryRepository: memoryRepository),
+      Routes.urlHome: (context) => Home(),
+      Routes.urlMemoryInput: (context) => Input(),
+    };
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -45,10 +51,22 @@ class Tome extends StatelessWidget {
         builder: EasyLoading.init(builder: (context, child) {
           return MediaQuery(data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0), child: child ?? const Text(''));
         }),
-        routes: {
-          Routes.urlIntro: (_) => Intro(memoryRepository: memoryRepository),
-          Routes.urlHome: (_) => Home(),
-          Routes.urlMemoryInput: (_) => Input(),
+        onGenerateRoute: (settings) {
+          final String route = settings.name ?? '';
+          switch (route) {
+            case Routes.urlMemoryInput:
+              return PageRouteBuilder(
+                  settings: settings, // Pass this to make popUntil(), pushNamedAndRemoveUntil(), works
+                  pageBuilder: (context, animation, secondaryAnimation) => routes[route](context),
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(opacity: animation, child: child)
+              );
+            default:
+              return PageRouteBuilder(
+                  settings: settings,
+                  pageBuilder: (context, animation, secondaryAnimation) => routes[route](context),
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) => child,
+              );
+          }
         },
       ),
     );

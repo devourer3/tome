@@ -51,11 +51,11 @@ class _InputState extends State<Input> {
 
   @override
   void initState() {
-    print('initState');
+    print('input memory - initState');
   }
 
   @override
   void activate() {
-    print('activate');
+    print('input memory - activate');
   }
 }
