@@ -1,5 +1,5 @@
 {
-  "app_title": "카드쓱",
+  "app_title": "투미",
   "auto": "자동",
   "manual": "수동",
   "find_card": "카드검색",
@@ -23,8 +23,11 @@
   "prev": "이전",
   "save": "저장",
 
+  "enter_question": "문제 입력",
+  "enter_answer": "정답 입력",
   "question_title": "무엇을 외워 볼까요?",
   "question_hint": "질문을 적어 주세요!",
   "answer_title": "이 질문의 정답은?",
-  "answer_hint": "답을 적어 주세요!"
+  "answer_hint": "답을 적어 주세요!",
+  "generate_question_title": "문제 생성"
 }

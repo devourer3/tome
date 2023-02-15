@@ -1,5 +1,5 @@
 {
-  "app_title": "CardSSG",
+  "app_title": "Tome",
   "auto": "auto",
   "manual": "manual",
   "find_card": "Find",
@@ -23,8 +23,11 @@
   "prev": "Back",
   "save": "Save",
 
+  "enter_question": "Enter Question",
+  "enter_answer": "Enter Answer",
   "question_title": "What would you memorize?",
   "question_hint": "Write down the question!",
   "answer_title": "What is the answer to this question?",
-  "answer_hint": "Write down the answer!"
+  "answer_hint": "Write down the answer!",
+  "generate_question_title": "Generate Question"
 }

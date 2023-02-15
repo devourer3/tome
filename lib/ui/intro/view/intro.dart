@@ -16,9 +16,8 @@ import 'package:tome/ui/utils/theme_util.dart';
 import 'package:tome/ui/utils/ui_util.dart';
 
 class Intro extends StatefulWidget {
-  final FocusNode focus = FocusNode();
   final MemoryRepository memoryRepository;
-
+  final FocusNode focus = FocusNode();
   Intro({super.key, required this.memoryRepository});
 
   @override
