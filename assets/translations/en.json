@@ -29,5 +29,6 @@
   "question_hint": "Write down the question!",
   "answer_title": "What is the answer to this question?",
   "answer_hint": "Write down the answer!",
-  "generate_question_title": "Generate Question"
+  "generate_question_title": "Generate Question",
+  "question_pic": "Question Picture"
 }

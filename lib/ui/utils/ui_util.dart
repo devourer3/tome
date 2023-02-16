@@ -18,8 +18,8 @@ class UiUtil {
     EasyLoading.dismiss(animation: false);
   }
 
-  static SvgPicture getSvgFromPath({required String path, required double width, required double height, required Color color, required Alignment alignment}) {
-    return SvgPicture.asset('assets/icon/$path', width: width, height: height, color: color, alignment: alignment);
+  static SvgPicture getSvgFromPath({required String filename, required double width, required double height, required Color color, required Alignment alignment}) {
+    return SvgPicture.asset('assets/svg/$filename', width: width, height: height, color: color, alignment: alignment);
   }
   
   static Image getPictureFromPath({required String name, double? width, double? height}) {
