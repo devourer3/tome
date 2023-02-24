@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ import 'package:tome/ui/theme/theme.dart';
 import 'constants/routes.dart';
 
 class Tome extends StatelessWidget {
-  const Tome({Key? key}) : super(key: key);
+  Tome({ Key? key }) : super(key: key);
 
   // This widget is the root of your application.
   @override

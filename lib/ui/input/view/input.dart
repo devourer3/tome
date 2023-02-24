@@ -1,15 +1,17 @@
+import 'package:camera/camera.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:tome/data/db/model/memory.dart';
 import 'package:tome/ui/Intro/bloc/intro_memo_bloc.dart';
 import 'package:tome/ui/base/border_container/border_container.dart';
-import 'package:tome/ui/base/custom_dialog/custom_dialog.dart';
 import 'package:tome/ui/base/elavated_button/elevated_button.dart';
 import 'package:tome/ui/base/space/space.dart';
 import 'package:tome/ui/base/textField/textField.dart';
 import 'package:tome/ui/constants/colors.dart';
 import 'package:tome/ui/constants/routes.dart';
+import 'package:tome/ui/utils/base_util.dart';
 import 'package:tome/ui/utils/theme_util.dart';
 import 'package:tome/ui/utils/ui_util.dart';
 
@@ -21,12 +23,14 @@ class Input extends StatefulWidget {
 }
 
 class _InputState extends State<Input> {
+  final ImagePicker _picker = ImagePicker();
   final FocusNode focus = FocusNode();
   String question = "";
   String answer = "";
   @override
   Widget build(BuildContext context) {
     final double deviceWidth = MediaQuery.of(context).size.width;
+    XFile? photo;
     return Scaffold(
         appBar: AppBar(
           title: FittedBox(fit: BoxFit.none, child: Text(tr('generate_question_title'), style: const TextStyle(fontSize: 18))),
@@ -102,13 +106,21 @@ class _InputState extends State<Input> {
                           width: deviceWidth / 3,
                           icon: UiUtil.getSvgFromPath(filename: 'camera.svg', width: 20, height: 20, color: ThemeColor(context: context, name: ColorName.active), alignment: Alignment.center),
                           title: tr('question_picture'),
-                          clickListener: () => {print('whoo!!')}),
+                          clickListener: () async => {
+                            print('아이 씨바!!!'),
+                            photo = await _picker.pickImage(source: ImageSource.gallery),
+                            // photo = await _picker.pickImage(source: ImageSource.camera),
+                            photo.log(),
+                          },
+                      ),
                       BorderContainer(
                           height: 120,
                           width: deviceWidth / 3,
                           icon: UiUtil.getSvgFromPath(filename: 'camera.svg', width: 20, height: 20, color: ThemeColor(context: context, name: ColorName.active), alignment: Alignment.center),
-                          title: tr('question_picture'),
-                          clickListener: () => {print('whoo!!')})
+                          title: tr('answer_picture'),
+                          clickListener: () => {
+                            print('whoo!!')
+                          })
                     ],
                   )
                 ])),
@@ -127,11 +139,9 @@ class _InputState extends State<Input> {
 
   @override
   void initState() {
-    print('input memory - initState');
   }
 
   @override
-  void activate() {
-    print('input memory - activate');
+  void dispose() {
   }
 }

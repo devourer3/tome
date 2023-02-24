@@ -30,5 +30,6 @@
   "answer_title": "이 질문의 정답은?",
   "answer_hint": "답을 적어 주세요!",
   "generate_question_title": "문제 생성",
-  "question_pic": "문제 사진"
+  "question_picture": "문제 사진",
+  "answer_picture": "정답 사진"
 }

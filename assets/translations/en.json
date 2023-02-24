@@ -30,5 +30,6 @@
   "answer_title": "What is the answer to this question?",
   "answer_hint": "Write down the answer!",
   "generate_question_title": "Generate Question",
-  "question_pic": "Question Picture"
+  "question_picture": "Question Picture",
+  "answer_picture": "Answer Picture"
 }

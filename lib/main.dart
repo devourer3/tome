@@ -16,7 +16,7 @@ void main() async {
         saveLocale: false,
         useOnlyLangCode: true,
         fallbackLocale: const Locale('en'),
-        child: const Tome(),
+        child: Tome(),
     )
   );
 }
