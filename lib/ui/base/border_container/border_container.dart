@@ -11,8 +11,9 @@ class BorderContainer extends StatelessWidget {
   final double? height;
   final double? width;
   final String? title;
+  ImageProvider<Object>? background;
 
-  const BorderContainer({required this.icon, required this.clickListener, this.title, this.width, this.height});
+  BorderContainer({required this.icon, required this.clickListener, this.title, this.width, this.height, this.background});
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +21,7 @@ class BorderContainer extends StatelessWidget {
         width: width,
         height: height,
         alignment: Alignment.center,
+        decoration: background != null ? BoxDecoration(image: DecorationImage(image: background!)) : BoxDecoration(),
         child: DottedBorder(
           strokeWidth: 3,
           color: ThemeColor(context: context, name: ColorName.active),

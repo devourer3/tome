@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:camera/camera.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -27,10 +29,12 @@ class _InputState extends State<Input> {
   final FocusNode focus = FocusNode();
   String question = "";
   String answer = "";
+  Uint8List? questionPhoto;
+  Uint8List? answerPhoto;
+
   @override
   Widget build(BuildContext context) {
     final double deviceWidth = MediaQuery.of(context).size.width;
-    XFile? photo;
     return Scaffold(
         appBar: AppBar(
           title: FittedBox(fit: BoxFit.none, child: Text(tr('generate_question_title'), style: const TextStyle(fontSize: 18))),
@@ -105,22 +109,24 @@ class _InputState extends State<Input> {
                           height: 120,
                           width: deviceWidth / 3,
                           icon: UiUtil.getSvgFromPath(filename: 'camera.svg', width: 20, height: 20, color: ThemeColor(context: context, name: ColorName.active), alignment: Alignment.center),
+                          background: Image.memory(questionPhoto ?? Uint8List.fromList([])).image,
                           title: tr('question_picture'),
                           clickListener: () async => {
-                            print('아이 씨바!!!'),
-                            photo = await _picker.pickImage(source: ImageSource.gallery),
-                            // photo = await _picker.pickImage(source: ImageSource.camera),
-                            photo.log(),
-                          },
-                      ),
+                                setState(() async {
+                                  questionPhoto = await (await _picker.pickImage(source: ImageSource.camera))?.readAsBytes();
+                                })
+                              }),
                       BorderContainer(
                           height: 120,
                           width: deviceWidth / 3,
                           icon: UiUtil.getSvgFromPath(filename: 'camera.svg', width: 20, height: 20, color: ThemeColor(context: context, name: ColorName.active), alignment: Alignment.center),
                           title: tr('answer_picture'),
-                          clickListener: () => {
-                            print('whoo!!')
-                          })
+                          background: Image.memory(answerPhoto ?? Uint8List.fromList([])).image,
+                          clickListener: () async => {
+                                setState(() async {
+                                  answerPhoto = await (await _picker.pickImage(source: ImageSource.gallery))?.readAsBytes();
+                                })
+                              })
                     ],
                   )
                 ])),
@@ -138,10 +144,8 @@ class _InputState extends State<Input> {
   }
 
   @override
-  void initState() {
-  }
+  void initState() {}
 
   @override
-  void dispose() {
-  }
+  void dispose() {}
 }
