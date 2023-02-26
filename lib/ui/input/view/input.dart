@@ -1,3 +1,4 @@
+import 'dart:ffi';
 import 'dart:typed_data';
 
 import 'package:camera/camera.dart';
@@ -66,7 +67,7 @@ class _InputState extends State<Input> {
         body: Column(children: [
           Expanded(
             child: SingleChildScrollView(
-                padding: EdgeInsets.symmetric(horizontal: 40),
+                padding: const EdgeInsets.symmetric(horizontal: 40),
                 child: Column(mainAxisAlignment: MainAxisAlignment.center, crossAxisAlignment: CrossAxisAlignment.start, children: [
                   const Space(height: 32),
                   Text(tr('enter_question')),
@@ -113,18 +114,26 @@ class _InputState extends State<Input> {
                           title: tr('question_picture'),
                           clickListener: () async => {
                                 setState(() async {
-                                  questionPhoto = await (await _picker.pickImage(source: ImageSource.camera))?.readAsBytes();
+                                  XFile? cameraImage = await _picker.pickImage(source: ImageSource.camera);
+                                  if (cameraImage != null) {
+                                    Uint8List cameraPhoto = await (cameraImage).readAsBytes();
+                                    setState(() { questionPhoto = cameraPhoto; });
+                                  }
                                 })
                               }),
                       BorderContainer(
                           height: 120,
                           width: deviceWidth / 3,
-                          icon: UiUtil.getSvgFromPath(filename: 'camera.svg', width: 20, height: 20, color: ThemeColor(context: context, name: ColorName.active), alignment: Alignment.center),
+                          icon: UiUtil.getSvgFromPath(filename: 'album.svg', width: 20, height: 20, color: ThemeColor(context: context, name: ColorName.active), alignment: Alignment.center),
                           title: tr('answer_picture'),
                           background: Image.memory(answerPhoto ?? Uint8List.fromList([])).image,
                           clickListener: () async => {
                                 setState(() async {
-                                  answerPhoto = await (await _picker.pickImage(source: ImageSource.gallery))?.readAsBytes();
+                                  XFile? pickImage = await _picker.pickImage(source: ImageSource.gallery);
+                                  if (pickImage != null) {
+                                    Uint8List pickPhoto = await (pickImage).readAsBytes();
+                                    setState(() { answerPhoto = pickPhoto; });
+                                  }
                                 })
                               })
                     ],

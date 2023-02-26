@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tome/ui/constants/colors.dart';
+import 'package:tome/ui/utils/base_util.dart';
 import 'package:tome/ui/utils/theme_util.dart';
 
 class BorderContainer extends StatelessWidget {
@@ -21,7 +22,7 @@ class BorderContainer extends StatelessWidget {
         width: width,
         height: height,
         alignment: Alignment.center,
-        decoration: background != null ? BoxDecoration(image: DecorationImage(image: background!)) : BoxDecoration(),
+        decoration: background != null ? BoxDecoration(image: DecorationImage(image: background!)) : const BoxDecoration(),
         child: DottedBorder(
           strokeWidth: 3,
           color: ThemeColor(context: context, name: ColorName.active),
