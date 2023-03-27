@@ -1,13 +1,15 @@
 import 'package:bloc/bloc.dart';
 import 'package:tome/data/db/model/memory.dart';
 import 'package:tome/domain/local/memory_repository.dart';
-import 'package:tome/ui/Intro/bloc/intro_memo_state.dart';
-import 'package:tome/ui/constants/bloc_status.dart';
+import 'package:tome/presentation/bloc/memory/memory_state.dart';
+import 'package:tome/presentation/ui/constants/bloc_status.dart';
 
-import 'intro_memo_event.dart';
+import 'memory_event.dart';
 
 // bloc vs cubit
 // https://ppantaleon.medium.com/flutter-bloc-vs-cubit-100a0fb0efcf
+// cubit 은 ui 에 간단한 작업을 진행할 떄,
+// bloc 은 repository 와 관련된 복잡한 것, 디버그가 필요할 때
 class MemoryBloc extends Bloc<MemoryEvent, MemoryState> {
   MemoryBloc({required MemoryRepository memoryRepository}) : _memoryRepository = memoryRepository,
   super(const MemoryState(status: BlocStatus.success, memoryList: [])) {

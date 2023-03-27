@@ -2,9 +2,8 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tome/ui/constants/colors.dart';
-import 'package:tome/ui/utils/base_util.dart';
-import 'package:tome/ui/utils/theme_util.dart';
+import 'package:tome/presentation/ui/constants/colors.dart';
+import 'package:tome/presentation/ui/utils/theme_util.dart';
 
 class BorderContainer extends StatelessWidget {
   final Function() clickListener;

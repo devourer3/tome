@@ -1,12 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tome/ui/constants/colors.dart';
-import 'package:tome/ui/constants/routes.dart';
-import 'package:tome/ui/home/view/navigator.dart';
-import 'package:tome/ui/memory_list/view/memory_list.dart';
-import 'package:tome/ui/settings/view/settings.dart';
-import 'package:tome/ui/utils/theme_util.dart';
+import 'package:tome/presentation/ui/constants/colors.dart';
+import 'package:tome/presentation/ui/constants/routes.dart';
+import 'package:tome/presentation/ui/home/view/navigator.dart';
+import 'package:tome/presentation/ui/memory_list/view/memory_list.dart';
+import 'package:tome/presentation/ui/settings/view/settings.dart';
+import 'package:tome/presentation/ui/utils/theme_util.dart';
 
 class Home extends StatefulWidget {
   @override

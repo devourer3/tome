@@ -1,4 +1,3 @@
-import 'package:camera/camera.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -6,12 +5,12 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:tome/domain/local/memory_repository.dart';
-import 'package:tome/ui/Intro/bloc/intro_memo_bloc.dart';
-import 'package:tome/ui/Intro/bloc/intro_memo_event.dart';
+import 'package:tome/presentation/bloc/memory/memory_bloc.dart';
+import 'package:tome/presentation/bloc/memory/memory_event.dart';
+import 'package:tome/presentation/ui/home/view/home.dart';
+import 'package:tome/presentation/ui/input/view/input.dart';
+import 'package:tome/presentation/ui/theme/theme.dart';
 import 'package:tome/ui/Intro/view/intro.dart';
-import 'package:tome/ui/home/view/home.dart';
-import 'package:tome/ui/input/view/input.dart';
-import 'package:tome/ui/theme/theme.dart';
 
 import 'constants/routes.dart';
 

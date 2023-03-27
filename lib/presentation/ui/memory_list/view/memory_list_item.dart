@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:tome/ui/constants/colors.dart';
-import 'package:tome/ui/utils/theme_util.dart';
-import 'package:tome/ui/utils/ui_util.dart';
+import 'package:tome/presentation/ui/constants/colors.dart';
+import 'package:tome/presentation/ui/utils/theme_util.dart';
+import 'package:tome/presentation/ui/utils/ui_util.dart';
 
 class MemoryListItem extends StatelessWidget {
   final String question;

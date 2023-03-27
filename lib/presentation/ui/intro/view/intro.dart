@@ -4,16 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tome/data/db/model/memory.dart';
 import 'package:tome/domain/local/memory_repository.dart';
-import 'package:tome/ui/Intro/bloc/intro_memo_bloc.dart';
-import 'package:tome/ui/Intro/bloc/intro_memo_event.dart';
-import 'package:tome/ui/Intro/bloc/intro_memo_state.dart';
-import 'package:tome/ui/base/elavated_button/elevated_button.dart';
-import 'package:tome/ui/base/space/space.dart';
-import 'package:tome/ui/base/textField/textField.dart';
-import 'package:tome/ui/constants/colors.dart';
-import 'package:tome/ui/constants/routes.dart';
-import 'package:tome/ui/utils/theme_util.dart';
-import 'package:tome/ui/utils/ui_util.dart';
+import 'package:tome/presentation/bloc/memory/memory_bloc.dart';
+import 'package:tome/presentation/bloc/memory/memory_event.dart';
+import 'package:tome/presentation/bloc/memory/memory_state.dart';
+import 'package:tome/presentation/ui/base/elavated_button/elevated_button.dart';
+import 'package:tome/presentation/ui/base/space/space.dart';
+import 'package:tome/presentation/ui/base/textField/textField.dart';
+import 'package:tome/presentation/ui/constants/colors.dart';
+import 'package:tome/presentation/ui/constants/routes.dart';
+import 'package:tome/presentation/ui/utils/theme_util.dart';
+import 'package:tome/presentation/ui/utils/ui_util.dart';
 
 class Intro extends StatefulWidget {
   final MemoryRepository memoryRepository;

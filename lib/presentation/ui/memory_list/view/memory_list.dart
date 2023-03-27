@@ -1,11 +1,10 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tome/data/db/model/memory.dart';
-import 'package:tome/ui/Intro/bloc/intro_memo_bloc.dart';
-import 'package:tome/ui/Intro/bloc/intro_memo_state.dart';
-import 'package:tome/ui/memory_list/view/memory_list_item.dart';
+import 'package:tome/presentation/bloc/memory/memory_bloc.dart';
+import 'package:tome/presentation/bloc/memory/memory_state.dart';
+import 'package:tome/presentation/ui/memory_list/view/memory_list_item.dart';
 
 class MemoryList extends StatefulWidget {
   @override

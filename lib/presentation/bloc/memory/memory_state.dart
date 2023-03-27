@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:tome/data/db/model/memory.dart';
-import 'package:tome/ui/constants/bloc_status.dart';
+import 'package:tome/presentation/ui/constants/bloc_status.dart';
 
 class MemoryState extends Equatable {
   final BlocStatus status;
