@@ -9,8 +9,8 @@ import 'package:tome/presentation/bloc/memory/memory_bloc.dart';
 import 'package:tome/presentation/bloc/memory/memory_event.dart';
 import 'package:tome/presentation/ui/home/view/home.dart';
 import 'package:tome/presentation/ui/input/view/input.dart';
+import 'package:tome/presentation/ui/intro/view/intro.dart';
 import 'package:tome/presentation/ui/theme/theme.dart';
-import 'package:tome/ui/Intro/view/intro.dart';
 
 import 'constants/routes.dart';
 
@@ -55,6 +55,7 @@ class Tome extends StatelessWidget {
           final String route = settings.name ?? '';
           switch (route) {
             case Routes.urlMemoryInput:
+            case Routes.urlMemoryDetail:
               return PageRouteBuilder(
                   settings: settings, // Pass this to make popUntil(), pushNamedAndRemoveUntil(), works
                   pageBuilder: (context, animation, secondaryAnimation) => routes[route](context),
